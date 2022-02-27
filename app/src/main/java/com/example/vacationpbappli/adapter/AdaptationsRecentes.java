@@ -1,6 +1,7 @@
 package com.example.vacationpbappli.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.vacationpbappli.DetailsActivity;
 import com.example.vacationpbappli.R;
 import com.example.vacationpbappli.modele.DonneesRecentes;
 
@@ -41,6 +43,14 @@ public class AdaptationsRecentes extends RecyclerView.Adapter<AdaptationsRecente
         holder.pays.setText(donneesRecentesList.get(position).getPays());
         holder.prix.setText(donneesRecentesList.get(position).getPrix());
         holder.placeImage.setImageResource(donneesRecentesList.get(position).getImageUrl());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(context, DetailsActivity.class);
+                context.startActivity(i);
+            }
+        });
 
     }
 
